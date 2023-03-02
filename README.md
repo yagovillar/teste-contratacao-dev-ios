@@ -1,5 +1,10 @@
 # teste-contratacao-dev-ios
 
+
+# MOVIEROLL
+
+![My Image](https://user-images.githubusercontent.com/58192730/222413581-50801667-eb98-4894-b146-207c2f19e7d5.png)
+
 App para navegar e descobrir mais sobre o top 250 filmes do IMDB
 
 • Design clean e moderno
