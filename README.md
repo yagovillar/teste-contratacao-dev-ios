@@ -19,6 +19,13 @@ App para navegar e descobrir mais sobre o top 250 filmes do IMDB
 Necessário ter instalado o Cocoapods !
 
 
+Tecnologias utilizadas:
+
+• UIKit
+• Alamofire para API
+• Cocoapods para gerenciador de dependências
+
+
 
 
 Obs: para quaisquer erros com bibliotecas e pods para rodar o app, aconselho ir ao terminal, acessar o diretorio do app e utilizar o comando pod install.
