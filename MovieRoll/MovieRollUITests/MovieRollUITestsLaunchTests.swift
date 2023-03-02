@@ -2,7 +2,7 @@
 //  MovieRollUITestsLaunchTests.swift
 //  MovieRollUITests
 //
-//  Created by Yago on 01/03/23.
+//  Created by Júlia oliveira da rocha on 01/03/23.
 //
 
 import XCTest
