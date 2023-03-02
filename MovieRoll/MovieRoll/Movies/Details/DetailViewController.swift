@@ -28,6 +28,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var show:TVSeries? = nil
     var rate:String? = ""
     var id:String? = ""
+    let loader = ImageLoader()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableCast.delegate = self
@@ -35,7 +38,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableCast.register(nib, forCellReuseIdentifier: "ator")
         self.tableCast.backgroundColor = UIColor(named: "background")
+        
         self.view.displayActivityIndicator(shouldDisplay: true)
+        
         self.getData()
         // Do any additional setup after loading the view.
     }
@@ -57,26 +62,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.show != nil {
-            let cell = self.tableCast.dequeueReusableCell(withIdentifier: "ator", for: indexPath) as! TableViewCellController
-            let actor = show?.actorList[indexPath.row]
-            cell.nomeAtor.text = actor?.name
-            cell.personagem.text = actor?.asCharacter
-            if let url = URL(string: actor!.image){
-                cell.imgAtor.load(url: url)
-            }
-            return cell
-        }else{
-            let cell = self.tableCast.dequeueReusableCell(withIdentifier: "ator", for: indexPath) as! TableViewCellController
-            return cell
-        }
-    }
+
     
     func setupRating(){
         let rate = Float(self.rate!)
@@ -134,6 +120,47 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.genre.text = String(year)
         }
         
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.show != nil {
+            let cell = self.tableCast.dequeueReusableCell(withIdentifier: "ator", for: indexPath) as! TableViewCellController
+            let actor = show?.actorList[indexPath.row]
+            cell.nomeAtor.text = actor?.name
+            cell.personagem.text = actor?.asCharacter
+            if let url = URL(string: actor!.image){
+                // 1
+                let token = loader.loadImage(url) { result in
+                  do {
+                    // 2
+                    let image = try result.get()
+                    // 3
+                    DispatchQueue.main.async {
+                      cell.imgAtor.image = image
+                    }
+                  } catch {
+                    // 4
+                    print(error)
+                  }
+                }
+
+                // 5
+                cell.onReuse = {
+                  if let token = token {
+                    self.loader.cancelLoad(token)
+                  }
+                }
+            }
+            return cell
+        }else{
+            let cell = self.tableCast.dequeueReusableCell(withIdentifier: "ator", for: indexPath) as! TableViewCellController
+            return cell
+        }
     }
 
 

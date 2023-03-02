@@ -39,10 +39,11 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="appLogo" width="108" height="184.33332824707031"/>
         <namedColor name="AccentColor">
-            <color red="0.89800000190734863" green="0.097999997437000275" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.98039215686274506" green="0.0" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -14,6 +14,9 @@ class CastViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     @IBOutlet var tableView: UITableView!
     
     var actorList:[Actor]? = nil
+    let loader = ImageLoader()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -31,11 +34,33 @@ class CastViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "ator", for: indexPath) as! TableViewCellController
             let actor = self.actorList?[indexPath.row]
+        
             cell.nomeAtor.text = actor?.name
             cell.personagem.text = actor?.asCharacter
-            if let url = URL(string: actor!.image){
-                cell.imgAtor.load(url: url)
-            }
+        
+                if let url = URL(string: actor!.image){
+                    // 1
+                    let token = loader.loadImage(url) { result in
+                      do {
+                        // 2
+                        let image = try result.get()
+                        // 3
+                        DispatchQueue.main.async {
+                          cell.imgAtor.image = image
+                        }
+                      } catch {
+                        // 4
+                        print(error)
+                      }
+                    }
+
+                    // 5
+                    cell.onReuse = {
+                      if let token = token {
+                        self.loader.cancelLoad(token)
+                      }
+                    }
+                }
             return cell
 
     }

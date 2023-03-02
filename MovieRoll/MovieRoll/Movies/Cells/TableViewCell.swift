@@ -13,6 +13,9 @@ class TableViewCellController: UITableViewCell {
     @IBOutlet var personagem: UILabel!
     @IBOutlet var nomeAtor: UILabel!
     @IBOutlet var imgAtor: UIImageView!
+    
+    var onReuse: () -> Void = {}
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.imgAtor.layer.masksToBounds = true
@@ -26,9 +29,10 @@ class TableViewCellController: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
-
+      super.prepareForReuse()
+      onReuse()
         imgAtor.image = nil
+        imgAtor.cancelImageLoad()
     }
     
 }

@@ -95,6 +95,20 @@ class MoviewViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        (filteredMovies?.items.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let con = DetailViewController()
+        let movie = self.filteredMovies?.items[indexPath.row]
+        con.id = movie?.id
+        con.rate = movie?.imDbRating
+        self.navigationController?.pushViewController(con, animated: true)
+    }
+    
+    
+    
     @IBAction func showSearchBar(_ sender: Any) {
         if searchBar.isHidden{
             self.searchBar.alpha = 0
@@ -114,17 +128,7 @@ class MoviewViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
   
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        (filteredMovies?.items.count)!
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let con = DetailViewController()
-        let movie = self.filteredMovies?.items[indexPath.row]
-        con.id = movie?.id
-        con.rate = movie?.imDbRating
-        self.navigationController?.pushViewController(con, animated: true)
-    }
+
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty{
@@ -151,34 +155,9 @@ class MoviewViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         present(refreshAlert, animated: true, completion: nil)
     }
-}
-
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
     
-    func loadIfNeed(url: URL, movie:Movie) {
-        let initialUrl = url
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        if initialUrl == url{
-                            self?.image = image
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
 }
+
+
+

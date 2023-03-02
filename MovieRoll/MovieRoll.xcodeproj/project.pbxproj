@@ -27,6 +27,8 @@
 		A3B56C0529B09469007042D4 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A3B56C0429B09469007042D4 /* SwiftProtobufPluginLibrary */; };
 		A3B56C0729B09BE3007042D4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B56C0629B09BE3007042D4 /* ImageLoader.swift */; };
 		A3B56C0929B0AAE6007042D4 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B56C0829B0AAE6007042D4 /* ToastView.swift */; };
+		A3B56C0B29B11AC1007042D4 /* LabelErrorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B56C0A29B11AC1007042D4 /* LabelErrorModifier.swift */; };
+		A3B56C0D29B11AED007042D4 /* MovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B56C0C29B11AED007042D4 /* MovieModels.swift */; };
 		A3F6B62129B038C600DCB512 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6B61F29B038C600DCB512 /* DetailViewController.swift */; };
 		A3F6B62229B038C600DCB512 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F6B62029B038C600DCB512 /* DetailViewController.xib */; };
 		A3F9491129B0105600856328 /* MoviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9490F29B0105600856328 /* MoviewViewController.swift */; };
@@ -83,6 +85,8 @@
 		A3B56BFF29B09417007042D4 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		A3B56C0629B09BE3007042D4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A3B56C0829B0AAE6007042D4 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		A3B56C0A29B11AC1007042D4 /* LabelErrorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelErrorModifier.swift; sourceTree = "<group>"; };
+		A3B56C0C29B11AED007042D4 /* MovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModels.swift; sourceTree = "<group>"; };
 		A3F6B61F29B038C600DCB512 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A3F6B62029B038C600DCB512 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		A3F9490F29B0105600856328 /* MoviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				A38E466D29AFEB6C00DB65F1 /* MovieService.swift */,
+				A3B56C0C29B11AED007042D4 /* MovieModels.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				A3B56BFF29B09417007042D4 /* LoadingOverlay.swift */,
 				A3B56C0629B09BE3007042D4 /* ImageLoader.swift */,
 				A3B56C0829B0AAE6007042D4 /* ToastView.swift */,
+				A3B56C0A29B11AC1007042D4 /* LabelErrorModifier.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -522,11 +528,13 @@
 			files = (
 				A38E463D29AFEB5D00DB65F1 /* AppDelegate.swift in Sources */,
 				A3B56BF729B04AAD007042D4 /* TableViewCell.swift in Sources */,
+				A3B56C0B29B11AC1007042D4 /* LabelErrorModifier.swift in Sources */,
 				A38E466E29AFEB6C00DB65F1 /* MovieService.swift in Sources */,
 				A3B56C0029B09417007042D4 /* LoadingOverlay.swift in Sources */,
 				A3B56C0929B0AAE6007042D4 /* ToastView.swift in Sources */,
 				A3F9491529B027C100856328 /* CollectionViewCell.swift in Sources */,
 				A3B56C0729B09BE3007042D4 /* ImageLoader.swift in Sources */,
+				A3B56C0D29B11AED007042D4 /* MovieModels.swift in Sources */,
 				A38E467729AFEDE700DB65F1 /* LoginViewController.swift in Sources */,
 				A3B56BFC29B0842B007042D4 /* CastViewController.swift in Sources */,
 				A38E463F29AFEB5D00DB65F1 /* SceneDelegate.swift in Sources */,
